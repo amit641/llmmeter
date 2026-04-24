@@ -1,6 +1,6 @@
 {
   "name": "llmmeter-mistral",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Mistral AI SDK adapter for llmmeter (@mistralai/mistralai).",
   "license": "MIT",
   "type": "module",
@@ -54,6 +54,6 @@
   "bugs": {
     "url": "https://github.com/amit641/llmmeter/issues"
   },
-  "homepage": "https://github.com/amit641/llmmeter#readme",
+  "homepage": "https://amit641.github.io/llmmeter/",
   "author": "Amit Chowdhary"
 }

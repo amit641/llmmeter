@@ -1,6 +1,6 @@
 {
   "name": "llmmeter-postgres",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Postgres sink and query API for llmmeter (production self-host).",
   "license": "MIT",
   "type": "module",
@@ -51,6 +51,6 @@
   "bugs": {
     "url": "https://github.com/amit641/llmmeter/issues"
   },
-  "homepage": "https://github.com/amit641/llmmeter#readme",
+  "homepage": "https://amit641.github.io/llmmeter/",
   "author": "Amit Chowdhary"
 }

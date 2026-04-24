@@ -1,6 +1,6 @@
 {
   "name": "llmmeter-sqlite",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "SQLite sink and query API for llmmeter.",
   "license": "MIT",
   "type": "module",
@@ -31,8 +31,8 @@
     "access": "public"
   },
   "dependencies": {
-    "llmmeter-core": "workspace:*",
-    "better-sqlite3": "^11.7.0"
+    "better-sqlite3": "^11.7.0",
+    "llmmeter-core": "workspace:*"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.12",
@@ -48,6 +48,6 @@
   "bugs": {
     "url": "https://github.com/amit641/llmmeter/issues"
   },
-  "homepage": "https://github.com/amit641/llmmeter#readme",
+  "homepage": "https://amit641.github.io/llmmeter/",
   "author": "Amit Chowdhary"
 }

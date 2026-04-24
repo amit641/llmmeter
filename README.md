@@ -2,6 +2,10 @@
 
 **Drop-in observability and cost tracking for any LLM SDK. One line of code.**
 
+[![docs](https://img.shields.io/badge/docs-amit641.github.io%2Fllmmeter-2563eb)](https://amit641.github.io/llmmeter/) [![npm](https://img.shields.io/npm/v/%40amit641%2Fllmmeter.svg)](https://www.npmjs.com/package/@amit641/llmmeter) [![license](https://img.shields.io/npm/l/%40amit641%2Fllmmeter.svg)](https://github.com/amit641/llmmeter/blob/main/LICENSE)
+
+**Documentation:** <https://amit641.github.io/llmmeter/>
+
 ```ts
 import OpenAI from "openai";
 import { meter } from "@amit641/llmmeter/openai";

@@ -1,0 +1,26 @@
+/**
+ * llmmeter brand: amber/gold on dark.
+ */
+
+:root {
+  --ifm-color-primary: #d97706;
+  --ifm-color-primary-dark: #c2680a;
+  --ifm-color-primary-darker: #b76309;
+  --ifm-color-primary-darkest: #975208;
+  --ifm-color-primary-light: #e9881d;
+  --ifm-color-primary-lighter: #ec9133;
+  --ifm-color-primary-lightest: #efa455;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  --ifm-color-primary: #fbbf24;
+  --ifm-color-primary-dark: #f59e0b;
+  --ifm-color-primary-darker: #d97706;
+  --ifm-color-primary-darkest: #b45309;
+  --ifm-color-primary-light: #fcd34d;
+  --ifm-color-primary-lighter: #fde68a;
+  --ifm-color-primary-lightest: #fef3c7;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}

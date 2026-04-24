@@ -1,6 +1,6 @@
 {
   "name": "llmmeter-otel",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "OpenTelemetry sink for llmmeter. Emits Gen-AI semantic-convention spans + metrics.",
   "license": "MIT",
   "type": "module",
@@ -56,6 +56,6 @@
   "bugs": {
     "url": "https://github.com/amit641/llmmeter/issues"
   },
-  "homepage": "https://github.com/amit641/llmmeter#readme",
+  "homepage": "https://amit641.github.io/llmmeter/",
   "author": "Amit Chowdhary"
 }

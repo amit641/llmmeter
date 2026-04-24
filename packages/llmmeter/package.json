@@ -1,9 +1,9 @@
 {
   "name": "@amit641/llmmeter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Drop-in observability and cost tracking for any LLM SDK. One line of code.",
   "license": "MIT",
-  "homepage": "https://github.com/amit641/llmmeter#readme",
+  "homepage": "https://amit641.github.io/llmmeter/",
   "keywords": [
     "llm",
     "observability",

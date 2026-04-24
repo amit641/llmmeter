@@ -1,4 +1,6 @@
 ---
+slug: /
+sidebar_position: 1
 title: Why llmmeter?
 description: Why every team shipping LLM features needs cost observability from day one.
 ---

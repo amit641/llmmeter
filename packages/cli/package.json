@@ -1,6 +1,6 @@
 {
   "name": "@amit641/llmmeter-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI for llmmeter: dashboard, collector, export, prune.",
   "license": "MIT",
   "type": "module",
@@ -55,6 +55,6 @@
   "bugs": {
     "url": "https://github.com/amit641/llmmeter/issues"
   },
-  "homepage": "https://github.com/amit641/llmmeter#readme",
+  "homepage": "https://amit641.github.io/llmmeter/",
   "author": "Amit Chowdhary"
 }
