@@ -1,0 +1,52 @@
+{
+  "name": "@llmmeter/core",
+  "version": "0.1.0",
+  "description": "Core types, context, batching, sinks, redaction, sampling, and pricing for llmmeter.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./pricing": {
+      "types": "./dist/pricing.d.ts",
+      "import": "./dist/pricing.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amit641/llmmeter.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/amit641/llmmeter/issues"
+  },
+  "homepage": "https://github.com/amit641/llmmeter#readme",
+  "author": "Amit Chowdhary"
+}

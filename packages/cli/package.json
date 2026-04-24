@@ -1,0 +1,60 @@
+{
+  "name": "@llmmeter/cli",
+  "version": "0.1.0",
+  "description": "CLI for llmmeter: dashboard, collector, export, prune.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "llmmeter": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "static",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup && (test -d ../dashboard/dist && rm -rf static && cp -r ../dashboard/dist static || true)",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist static .turbo"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@llmmeter/core": "workspace:*",
+    "@llmmeter/sqlite": "workspace:*"
+  },
+  "peerDependencies": {
+    "@llmmeter/postgres": "workspace:*"
+  },
+  "peerDependenciesMeta": {
+    "@llmmeter/postgres": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@llmmeter/postgres": "workspace:*",
+    "@types/pg": "^8.11.10",
+    "pg": "^8.13.1",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amit641/llmmeter.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/amit641/llmmeter/issues"
+  },
+  "homepage": "https://github.com/amit641/llmmeter#readme",
+  "author": "Amit Chowdhary"
+}

@@ -1,0 +1,101 @@
+{
+  "name": "llmmeter",
+  "version": "0.1.0",
+  "description": "Drop-in observability and cost tracking for any LLM SDK. One line of code.",
+  "license": "MIT",
+  "homepage": "https://github.com/amit641/llmmeter#readme",
+  "keywords": [
+    "llm",
+    "observability",
+    "openai",
+    "anthropic",
+    "cost",
+    "tracing",
+    "monitoring",
+    "ai"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./openai": {
+      "types": "./dist/openai.d.ts",
+      "import": "./dist/openai.js"
+    },
+    "./anthropic": {
+      "types": "./dist/anthropic.d.ts",
+      "import": "./dist/anthropic.js"
+    },
+    "./sqlite": {
+      "types": "./dist/sqlite.d.ts",
+      "import": "./dist/sqlite.js"
+    },
+    "./postgres": {
+      "types": "./dist/postgres.d.ts",
+      "import": "./dist/postgres.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@llmmeter/anthropic": "workspace:*",
+    "@llmmeter/core": "workspace:*",
+    "@llmmeter/openai": "workspace:*"
+  },
+  "peerDependencies": {
+    "@anthropic-ai/sdk": ">=0.20.0",
+    "@llmmeter/postgres": "workspace:*",
+    "@llmmeter/sqlite": "workspace:*",
+    "openai": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@llmmeter/sqlite": {
+      "optional": true
+    },
+    "@llmmeter/postgres": {
+      "optional": true
+    },
+    "openai": {
+      "optional": true
+    },
+    "@anthropic-ai/sdk": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@llmmeter/postgres": "workspace:*",
+    "@llmmeter/sqlite": "workspace:*",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amit641/llmmeter.git",
+    "directory": "packages/llmmeter"
+  },
+  "bugs": {
+    "url": "https://github.com/amit641/llmmeter/issues"
+  },
+  "author": "Amit Chowdhary"
+}

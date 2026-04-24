@@ -1,0 +1,16 @@
+{
+  "name": "@llmmeter-examples/node-script",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "demo": "node demo.js",
+    "demo-real": "node demo-real.js"
+  },
+  "dependencies": {
+    "@llmmeter/openai": "workspace:*",
+    "@llmmeter/sqlite": "workspace:*",
+    "llmmeter": "workspace:*",
+    "openai": "^4.77.0"
+  }
+}

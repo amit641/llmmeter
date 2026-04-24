@@ -1,0 +1,56 @@
+{
+  "name": "@llmmeter/postgres",
+  "version": "0.1.0",
+  "description": "Postgres sink and query API for llmmeter (production self-host).",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:integration": "LLMMETER_PG_INTEGRATION=1 vitest run",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@llmmeter/core": "workspace:*",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@testcontainers/postgresql": "^10.16.0",
+    "@types/pg": "^8.11.10",
+    "testcontainers": "^10.16.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amit641/llmmeter.git",
+    "directory": "packages/postgres"
+  },
+  "bugs": {
+    "url": "https://github.com/amit641/llmmeter/issues"
+  },
+  "homepage": "https://github.com/amit641/llmmeter#readme",
+  "author": "Amit Chowdhary"
+}

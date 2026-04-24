@@ -1,0 +1,82 @@
+# ---------- Dependencies ----------
+node_modules/
+.pnpm-store/
+.pnp.*
+
+# ---------- Build output ----------
+dist/
+build/
+out/
+*.tsbuildinfo
+.tsbuildinfo
+
+# Per-package CLI static dashboard bundle (regenerated from packages/dashboard)
+packages/cli/static/
+
+# ---------- Caches ----------
+.turbo/
+.cache/
+.parcel-cache/
+.eslintcache
+.swc/
+.rollup.cache/
+.vite/
+.vitest/
+
+# ---------- Frameworks ----------
+.next/
+.nuxt/
+.svelte-kit/
+.astro/
+apps/docs/dist/
+apps/docs/.astro/
+
+# ---------- Testing ----------
+coverage/
+*.lcov
+.nyc_output/
+test-results/
+playwright-report/
+
+# ---------- Logs ----------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ---------- Runtime / local data ----------
+.llmmeter/
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# ---------- Secrets & env ----------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ---------- Editor / OS ----------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json.example
+*.swp
+*.swo
+*~
+
+# ---------- Misc ----------
+*.tgz
+.npm/
+.yarn/cache
+.yarn/install-state.gz
