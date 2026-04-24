@@ -4,7 +4,7 @@ description: Persistent storage for self-hosted, multi-instance production.
 ---
 
 ```ts
-import { postgresSink } from "@llmmeter/postgres";
+import { postgresSink } from "llmmeter-postgres";
 
 const sink = postgresSink({
   connectionString: process.env.LLMMETER_DB_URL,

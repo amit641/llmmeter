@@ -67,9 +67,9 @@ jobs:
           node-version: 20
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm --filter '@llmmeter/*' build
+      - run: pnpm --filter 'llmmeter-*' build
       # testcontainers will reuse a daemon if available; CI picks up the service.
-      - run: pnpm --filter @llmmeter/postgres test:integration
+      - run: pnpm --filter llmmeter-postgres test:integration
         env:
           LLMMETER_PG_INTEGRATION: "1"
 

@@ -8,13 +8,13 @@ Wrap your client once and reuse it everywhere.
 
 ```ts
 import OpenAI from "openai";
-import { meter } from "llmmeter/openai";
-import { sqliteSink } from "llmmeter/sqlite"; // dev / single-instance prod
-// import { httpSink } from "llmmeter";       // multi-instance / edge
-// import { postgresSink } from "llmmeter/postgres"; // self-hosted prod
+import { meter } from "@amit641/llmmeter/openai";
+import { sqliteSink } from "@amit641/llmmeter/sqlite"; // dev / single-instance prod
+// import { httpSink } from "@amit641/llmmeter";       // multi-instance / edge
+// import { postgresSink } from "@amit641/llmmeter/postgres"; // self-hosted prod
 
 export const openai = meter(new OpenAI(), {
-  sink: sqliteSink({ filePath: ".amit641/llmmeter.db" }),
+  sink: sqliteSink({ filePath: "./.llmmeter/llmmeter.db" }),
   recordPayload: false,
   maxDailySpendUsd: 50,
   onBudgetExceeded: "warn",
@@ -25,7 +25,7 @@ export const openai = meter(new OpenAI(), {
 
 ```ts
 import { openai } from "@/lib/openai";
-import { withContext } from "llmmeter";
+import { withContext } from "@amit641/llmmeter";
 
 export async function POST(req: Request) {
   const { message, userId } = await req.json();
@@ -47,7 +47,7 @@ export async function POST(req: Request) {
 For Vercel / multi-instance / edge, swap the SQLite sink for HTTP:
 
 ```ts
-import { meter, httpSink } from "llmmeter";
+import { meter, httpSink } from "@amit641/llmmeter";
 
 export const openai = meter(new OpenAI(), {
   sink: httpSink({

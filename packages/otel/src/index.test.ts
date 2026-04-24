@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { BasicTracerProvider, InMemorySpanExporter, SimpleSpanProcessor } from "@opentelemetry/sdk-trace-base";
 import { trace } from "@opentelemetry/api";
-import type { LLMCallRecord } from "@llmmeter/core";
+import type { LLMCallRecord } from "llmmeter-core";
 import { otelSink } from "./index.js";
 
 function setup() {

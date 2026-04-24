@@ -5,7 +5,7 @@ description: Core building blocks of llmmeter.
 
 ## Recorder
 
-Every adapter (`@llmmeter/openai`, `@llmmeter/anthropic`, …) builds a `Recorder` from your `MeterOptions`. The recorder:
+Every adapter (`llmmeter-openai`, `llmmeter-anthropic`, …) builds a `Recorder` from your `MeterOptions`. The recorder:
 
 1. Generates a ULID for every call.
 2. Pulls context out of `AsyncLocalStorage` (`userId`, `feature`, `traceId`, `meta`).
@@ -20,12 +20,12 @@ Every adapter (`@llmmeter/openai`, `@llmmeter/anthropic`, …) builds a `Recorde
 A sink is a thing that persists records. Sinks all implement `{ write, flush, close }`. Mix and match with `multiSink`:
 
 ```ts
-import { meter, multiSink, jsonlSink } from "llmmeter";
-import { sqliteSink } from "llmmeter/sqlite";
-import { otelSink } from "@llmmeter/otel";
+import { meter, multiSink, jsonlSink } from "@amit641/llmmeter";
+import { sqliteSink } from "@amit641/llmmeter/sqlite";
+import { otelSink } from "llmmeter-otel";
 
 const sink = multiSink(
-  sqliteSink({ filePath: "./.amit641/llmmeter.db" }),
+  sqliteSink({ filePath: "./.llmmeter/llmmeter.db" }),
   otelSink({ tracer: trace.getTracer("my-app") }),
   jsonlSink({ dir: "./logs" }), // backup
 );
@@ -65,6 +65,6 @@ By default, llmmeter records `promptHash` (SHA-256), token counts, and metadata 
 Prices live in [`packages/core/src/pricing.ts`](https://github.com/amit641/llmmeter/blob/main/packages/core/src/pricing.ts). They're versioned and updated weekly via a GitHub Action. To override:
 
 ```ts
-import { PRICE_TABLE } from "llmmeter";
+import { PRICE_TABLE } from "@amit641/llmmeter";
 PRICE_TABLE.push({ provider: "openai", model: "ft:my-model", inputPer1M: 3, outputPer1M: 12 });
 ```

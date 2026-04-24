@@ -9,5 +9,5 @@ export default defineConfig({
   target: "node18",
   splitting: false,
   treeshake: true,
-  external: ["@llmmeter/core", "@llmmeter/sqlite", "@llmmeter/postgres", "better-sqlite3", "pg"],
+  external: ["llmmeter-core", "llmmeter-sqlite", "llmmeter-postgres", "better-sqlite3", "pg"],
 });

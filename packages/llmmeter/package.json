@@ -1,5 +1,5 @@
 {
-  "name": "llmmeter",
+  "name": "@amit641/llmmeter",
   "version": "0.1.0",
   "description": "Drop-in observability and cost tracking for any LLM SDK. One line of code.",
   "license": "MIT",
@@ -58,21 +58,21 @@
     "access": "public"
   },
   "dependencies": {
-    "@llmmeter/anthropic": "workspace:*",
-    "@llmmeter/core": "workspace:*",
-    "@llmmeter/openai": "workspace:*"
+    "llmmeter-anthropic": "workspace:*",
+    "llmmeter-core": "workspace:*",
+    "llmmeter-openai": "workspace:*"
   },
   "peerDependencies": {
     "@anthropic-ai/sdk": ">=0.20.0",
-    "@llmmeter/postgres": "workspace:*",
-    "@llmmeter/sqlite": "workspace:*",
+    "llmmeter-postgres": "workspace:*",
+    "llmmeter-sqlite": "workspace:*",
     "openai": ">=4.0.0"
   },
   "peerDependenciesMeta": {
-    "@llmmeter/sqlite": {
+    "llmmeter-sqlite": {
       "optional": true
     },
-    "@llmmeter/postgres": {
+    "llmmeter-postgres": {
       "optional": true
     },
     "openai": {
@@ -83,8 +83,8 @@
     }
   },
   "devDependencies": {
-    "@llmmeter/postgres": "workspace:*",
-    "@llmmeter/sqlite": "workspace:*",
+    "llmmeter-postgres": "workspace:*",
+    "llmmeter-sqlite": "workspace:*",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8"

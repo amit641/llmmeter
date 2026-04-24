@@ -5,7 +5,7 @@ description: Wrap `@mistralai/mistralai` v1+ clients.
 
 ```ts
 import { Mistral } from "@mistralai/mistralai";
-import { meter } from "@llmmeter/mistral";
+import { meter } from "llmmeter-mistral";
 
 const client = meter(new Mistral({ apiKey: process.env.MISTRAL_API_KEY! }));
 

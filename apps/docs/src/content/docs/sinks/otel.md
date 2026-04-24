@@ -4,14 +4,14 @@ description: Emit Gen-AI semantic-convention spans to your existing OTel pipelin
 ---
 
 ```ts
-import { meter, multiSink } from "llmmeter";
-import { sqliteSink } from "llmmeter/sqlite";
-import { otelSink } from "@llmmeter/otel";
+import { meter, multiSink } from "@amit641/llmmeter";
+import { sqliteSink } from "@amit641/llmmeter/sqlite";
+import { otelSink } from "llmmeter-otel";
 import { trace } from "@opentelemetry/api";
 
 const ai = meter(openai, {
   sink: multiSink(
-    sqliteSink({ filePath: "./.amit641/llmmeter.db" }),
+    sqliteSink({ filePath: "./.llmmeter/llmmeter.db" }),
     otelSink({ tracer: trace.getTracer("my-app") }),
   ),
 });

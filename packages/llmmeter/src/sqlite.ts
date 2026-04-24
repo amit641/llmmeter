@@ -1,1 +1,1 @@
-export * from "@llmmeter/sqlite";
+export * from "llmmeter-sqlite";

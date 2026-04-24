@@ -4,7 +4,7 @@ description: tail -f for your LLM calls.
 ---
 
 ```sh
-npx llmmeter tail --db ./.amit641/llmmeter.db --interval 500
+npx @amit641/llmmeter-cli tail --db ./.llmmeter/llmmeter.db --interval 500
 ```
 
 Polls the database every `--interval` ms and prints every new call as it arrives. Errors are highlighted in red so a runaway loop is impossible to miss.
@@ -20,14 +20,14 @@ ERR 14:32:14.001  anthropic/claude-3-5-sonnet              810    320   $0.01275
 Filters:
 
 ```sh
-npx llmmeter tail --feature search
-npx llmmeter tail --provider anthropic
+npx @amit641/llmmeter-cli tail --feature search
+npx @amit641/llmmeter-cli tail --provider anthropic
 ```
 
 Programmatic API:
 
 ```ts
-import { tail } from "@llmmeter/cli";
+import { tail } from "@amit641/llmmeter-cli";
 
 const stop = await tail({ storage, intervalMs: 500, filters: { feature: "rag" } });
 // later: stop()

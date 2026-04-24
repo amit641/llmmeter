@@ -5,7 +5,7 @@ description: Drop-in observability for the official `openai` SDK.
 
 ```ts
 import OpenAI from "openai";
-import { meter } from "llmmeter/openai";
+import { meter } from "@amit641/llmmeter/openai";
 
 const openai = meter(new OpenAI());
 
@@ -28,6 +28,6 @@ Wraps `chat.completions.create`, `responses.create`, and `embeddings.create`. St
 ## Subpath imports
 
 ```ts
-import { meter } from "llmmeter/openai";        // explicit, smaller bundle
-import { meter } from "llmmeter";                // umbrella, auto-detects shape
+import { meter } from "@amit641/llmmeter/openai";        // explicit, smaller bundle
+import { meter } from "@amit641/llmmeter";                // umbrella, auto-detects shape
 ```

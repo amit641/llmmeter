@@ -4,7 +4,7 @@ description: Batched, retried POSTs to a remote collector. Designed for Lambda /
 ---
 
 ```ts
-import { httpSink } from "llmmeter";
+import { httpSink } from "@amit641/llmmeter";
 
 const sink = httpSink({
   url: "https://collector.mycompany.com/ingest",

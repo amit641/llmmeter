@@ -7,7 +7,7 @@
  *
  * @example
  *   import { generateText, streamText, embed } from "ai";
- *   import { meter } from "@llmmeter/vercel-ai";
+ *   import { meter } from "llmmeter-vercel-ai";
  *
  *   const ai = meter({ generateText, streamText, embed });
  *   const { text, usage } = await ai.generateText({ model: openai("gpt-4o-mini"), prompt: "hi" });
@@ -20,7 +20,7 @@ import {
   type Operation,
   type ProviderName,
   type TokenUsage,
-} from "@llmmeter/core";
+} from "llmmeter-core";
 
 const KNOWN_PROVIDERS: Array<{ prefix: string; name: ProviderName }> = [
   { prefix: "openai", name: "openai" },

@@ -1,5 +1,5 @@
 ---
-title: llmmeter
+title: @amit641/llmmeter
 description: Drop-in observability and cost tracking for any LLM SDK.
 ---
 
@@ -8,14 +8,14 @@ import { Card, CardGrid } from "@astrojs/starlight/components";
 **One line of code. Every LLM call instrumented.**
 
 ```ts
-import { meter } from "llmmeter";
+import { meter } from "@amit641/llmmeter";
 const openai = meter(new OpenAI());
 ```
 
 That's it. From now on every call is recorded with token counts, USD cost,
 latency, time-to-first-token, prompt hash, and any custom context you attach
 (`feature`, `userId`, `traceId`). Data goes to a local SQLite file and a
-beautiful dashboard at `npx llmmeter dashboard`.
+beautiful dashboard at `npx @amit641/llmmeter-cli dashboard`.
 
 Production? Ship to your existing Postgres, OpenTelemetry stack, or our
 self-hosted Docker collector. Hosted cloud is coming soon.

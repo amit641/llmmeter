@@ -4,7 +4,7 @@ description: KPI tiles, time-series, and top-N breakdowns for your LLM traffic.
 ---
 
 ```sh
-npx llmmeter dashboard
+npx @amit641/llmmeter-cli dashboard
 # → http://localhost:3737
 ```
 

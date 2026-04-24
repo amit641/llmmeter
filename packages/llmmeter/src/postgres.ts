@@ -1,1 +1,1 @@
-export * from "@llmmeter/postgres";
+export * from "llmmeter-postgres";

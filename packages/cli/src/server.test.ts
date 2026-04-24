@@ -1,5 +1,5 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import type { LLMCallRecord } from "@llmmeter/core";
+import type { LLMCallRecord } from "llmmeter-core";
 import { createDashboardServer } from "./server.js";
 import type { QueryFilters, Storage } from "./storage.js";
 

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { Writable } from "node:stream";
-import type { LLMCallRecord } from "@llmmeter/core";
+import type { LLMCallRecord } from "llmmeter-core";
 import type { QueryFilters, Storage } from "./storage.js";
 import { tail } from "./tail.js";
 

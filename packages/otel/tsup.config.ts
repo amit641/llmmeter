@@ -9,5 +9,5 @@ export default defineConfig({
   target: "node18",
   splitting: false,
   treeshake: true,
-  external: ["@llmmeter/core", "@opentelemetry/api"],
+  external: ["llmmeter-core", "@opentelemetry/api"],
 });

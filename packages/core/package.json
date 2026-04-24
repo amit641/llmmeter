@@ -1,5 +1,5 @@
 {
-  "name": "@llmmeter/core",
+  "name": "llmmeter-core",
   "version": "0.1.0",
   "description": "Core types, context, batching, sinks, redaction, sampling, and pricing for llmmeter.",
   "license": "MIT",

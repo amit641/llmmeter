@@ -4,7 +4,7 @@ description: Instrument code you don't own by wrapping global `fetch()`.
 ---
 
 ```ts
-import { meterFetch } from "@llmmeter/fetch";
+import { meterFetch } from "llmmeter-fetch";
 
 globalThis.fetch = meterFetch(globalThis.fetch);
 
@@ -35,7 +35,7 @@ Use this when:
 For custom endpoints, register a `FetchParser`:
 
 ```ts
-import { meterFetch, type FetchParser } from "@llmmeter/fetch";
+import { meterFetch, type FetchParser } from "llmmeter-fetch";
 
 const myParser: FetchParser = {
   matches: (url) => url.hostname === "internal.api",

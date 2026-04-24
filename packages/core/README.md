@@ -1,4 +1,4 @@
-# @llmmeter/core
+# llmmeter-core
 
 Core types, recorder, AsyncLocalStorage context, redaction, sampling, pricing, and base sinks for [llmmeter](https://github.com/amit641/llmmeter).
 

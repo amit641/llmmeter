@@ -1,5 +1,5 @@
 {
-  "name": "@llmmeter/postgres",
+  "name": "llmmeter-postgres",
   "version": "0.1.0",
   "description": "Postgres sink and query API for llmmeter (production self-host).",
   "license": "MIT",
@@ -32,7 +32,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@llmmeter/core": "workspace:*",
+    "llmmeter-core": "workspace:*",
     "pg": "^8.13.1"
   },
   "devDependencies": {

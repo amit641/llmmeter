@@ -1,15 +1,15 @@
-# llmmeter
+# @amit641/llmmeter
 
 **Drop-in observability and cost tracking for any LLM SDK. One line of code.**
 
 ```ts
 import OpenAI from "openai";
-import { meter } from "llmmeter/openai";
+import { meter } from "@amit641/llmmeter/openai";
 
 const openai = meter(new OpenAI()); // <-- that's it
 ```
 
-Then run `npx llmmeter dashboard` and open the URL it prints. You get:
+Then run `npx @amit641/llmmeter-cli dashboard` and open the URL it prints. You get:
 
 - Real-time **spend in USD** by model, feature, user, and conversation
 - **Token counts** (input, output, cached, reasoning) per call
@@ -25,9 +25,9 @@ No agents, no proxies, no vendor lock-in. Calls are intercepted in-process, cost
 ## Install
 
 ```bash
-npm i llmmeter
+npm i @amit641/llmmeter
 # or
-pnpm add llmmeter
+pnpm add @amit641/llmmeter
 ```
 
 To wrap the OpenAI or Anthropic SDK, install one of:
@@ -43,22 +43,22 @@ pnpm add @anthropic-ai/sdk
 
 ### 1. Local dev (default)
 
-Records go to a SQLite file under `./.amit641/llmmeter.db`. Run the dashboard:
+Records go to a SQLite file under `./.llmmeter/llmmeter.db`. Run the dashboard:
 
 ```bash
-npx llmmeter dashboard
+npx @amit641/llmmeter-cli dashboard
 ```
 
 ```ts
 import OpenAI from "openai";
-import { meter } from "llmmeter/openai";
-import { sqliteSink } from "llmmeter/sqlite";
+import { meter } from "@amit641/llmmeter/openai";
+import { sqliteSink } from "@amit641/llmmeter/sqlite";
 
 const openai = meter(new OpenAI(), {
-  sink: sqliteSink(),                // optional: defaults to ./.amit641/llmmeter.db
-  recordPayload: false,              // off by default for privacy
+  sink: sqliteSink(), // optional: defaults to ./.llmmeter/llmmeter.db
+  recordPayload: false, // off by default for privacy
   maxDailySpendUsd: 50,
-  onBudgetExceeded: "warn",          // or "throw"
+  onBudgetExceeded: "warn", // or "throw"
 });
 ```
 
@@ -69,7 +69,7 @@ Put a small collector behind your apps; they POST batched records to it.
 App side:
 
 ```ts
-import { meter, httpSink } from "llmmeter";
+import { meter, httpSink } from "@amit641/llmmeter";
 import OpenAI from "openai";
 
 const openai = meter(new OpenAI(), {
@@ -95,7 +95,7 @@ docker run -d \
 Or run it from the CLI directly:
 
 ```bash
-npx llmmeter serve \
+npx @amit641/llmmeter-cli serve \
   --pg postgres://user:pass@db/llmmeter \
   --port 8080 \
   --ingest-token $LLMMETER_INGEST_TOKEN \
@@ -106,7 +106,7 @@ npx llmmeter serve \
 
 The HTTP sink is `fetch`-based and edge-compatible. Use it the same way as above; nothing else changes.
 
-### 4. Hosted cloud — *coming soon*
+### 4. Hosted cloud — _coming soon_
 
 We're building a managed collector + dashboard at [`llmmeter.dev/cloud`](https://llmmeter.dev/cloud) so you can skip the Docker step. Want early access? Open an issue or watch the repo.
 
@@ -143,7 +143,7 @@ Every call produces an `LLMCallRecord`:
 Use `withContext` once per request, and every metered call inside (including async work) inherits it:
 
 ```ts
-import { withContext } from "llmmeter";
+import { withContext } from "@amit641/llmmeter";
 
 await withContext({ userId, feature: "chat", conversationId }, async () => {
   await openai.chat.completions.create(...);
@@ -161,15 +161,15 @@ await withContext({ userId, feature: "chat", conversationId }, async () => {
 
 ## Sinks
 
-| Sink | Use when | Package |
-| --- | --- | --- |
-| `sqliteSink` | Local dev, single-instance prod | `llmmeter/sqlite` |
-| `httpSink` | Multi-instance, edge, serverless | `llmmeter` |
-| `postgresSink` | Self-hosted prod, multi-instance | `llmmeter/postgres` |
-| `jsonlSink` | Cheap append-only log → ship later | `llmmeter` |
-| `multiSink(a, b)` | Send to multiple destinations | `llmmeter` |
-| `otelSink` | Use existing OTel pipeline (Jaeger / Tempo / Datadog / …) | `@llmmeter/otel` |
-| **Cloud** | Managed hosted collector | *coming soon* |
+| Sink              | Use when                                                  | Package             |
+| ----------------- | --------------------------------------------------------- | ------------------- |
+| `sqliteSink`      | Local dev, single-instance prod                           | `llmmeter/sqlite`   |
+| `httpSink`        | Multi-instance, edge, serverless                          | `llmmeter`          |
+| `postgresSink`    | Self-hosted prod, multi-instance                          | `llmmeter/postgres` |
+| `jsonlSink`       | Cheap append-only log → ship later                        | `llmmeter`          |
+| `multiSink(a, b)` | Send to multiple destinations                             | `llmmeter`          |
+| `otelSink`        | Use existing OTel pipeline (Jaeger / Tempo / Datadog / …) | `llmmeter-otel`    |
+| **Cloud**         | Managed hosted collector                                  | _coming soon_       |
 
 Sinks are batched and durable: on `SIGTERM`/`SIGINT`/`beforeExit` we flush automatically. You can also call `await flushAll()` or `await shutdown()` manually (useful in serverless).
 
@@ -194,20 +194,20 @@ llmmeter version
 
 ## Adapters
 
-| Provider | Package | Status |
-| --- | --- | --- |
-| OpenAI | `llmmeter/openai` | ✅ chat, embeddings, streaming, responses |
-| Anthropic | `llmmeter/anthropic` | ✅ messages, streaming, prompt caching |
-| Vercel AI SDK | `@llmmeter/vercel-ai` | ✅ generateText, streamText, embed, generateObject |
-| Google Gemini | `@llmmeter/google` | ✅ generateContent, generateContentStream, embedContent |
-| Mistral | `@llmmeter/mistral` | ✅ chat.complete, chat.stream, embeddings, fim |
-| Generic `fetch` | `@llmmeter/fetch` | ✅ catch-all (OpenAI, Anthropic, Google, Mistral, Groq, OpenRouter, DeepSeek, xAI, Ollama) |
+| Provider        | Package               | Status                                                                                     |
+| --------------- | --------------------- | ------------------------------------------------------------------------------------------ |
+| OpenAI          | `llmmeter/openai`     | ✅ chat, embeddings, streaming, responses                                                  |
+| Anthropic       | `llmmeter/anthropic`  | ✅ messages, streaming, prompt caching                                                     |
+| Vercel AI SDK   | `llmmeter-vercel-ai` | ✅ generateText, streamText, embed, generateObject                                         |
+| Google Gemini   | `llmmeter-google`    | ✅ generateContent, generateContentStream, embedContent                                    |
+| Mistral         | `llmmeter-mistral`   | ✅ chat.complete, chat.stream, embeddings, fim                                             |
+| Generic `fetch` | `llmmeter-fetch`     | ✅ catch-all (OpenAI, Anthropic, Google, Mistral, Groq, OpenRouter, DeepSeek, xAI, Ollama) |
 
 The umbrella `meter()` auto-detects supported clients:
 
 ```ts
-import { meter } from "llmmeter";
-const openai    = meter(new OpenAI());
+import { meter } from "@amit641/llmmeter";
+const openai = meter(new OpenAI());
 const anthropic = meter(new Anthropic());
 ```
 
@@ -239,19 +239,19 @@ const anthropic = meter(new Anthropic());
 
 ```
 packages/
-  core/        # @llmmeter/core — types, recorder, ALS, redaction, pricing, base sinks
-  openai/      # @llmmeter/openai — OpenAI SDK adapter
-  anthropic/   # @llmmeter/anthropic — Anthropic SDK adapter
-  google/      # @llmmeter/google — Google Generative AI adapter
-  mistral/     # @llmmeter/mistral — Mistral SDK adapter
-  vercel-ai/   # @llmmeter/vercel-ai — Vercel AI SDK adapter
-  fetch/       # @llmmeter/fetch — catch-all fetch() wrapper (auto-detects URL)
-  sqlite/      # @llmmeter/sqlite — SQLite sink + read API
-  postgres/    # @llmmeter/postgres — Postgres sink + read API
-  otel/        # @llmmeter/otel — OpenTelemetry sink (Gen-AI semantic conventions)
-  cli/         # @llmmeter/cli — `llmmeter` binary, dashboard server, collector, tail, analyze
-  dashboard/   # @llmmeter/dashboard — React UI (bundled into cli/static)
-  llmmeter/    # umbrella package — `import { meter } from "llmmeter"`
+  core/        # llmmeter-core — types, recorder, ALS, redaction, pricing, base sinks
+  openai/      # llmmeter-openai — OpenAI SDK adapter
+  anthropic/   # llmmeter-anthropic — Anthropic SDK adapter
+  google/      # llmmeter-google — Google Generative AI adapter
+  mistral/     # llmmeter-mistral — Mistral SDK adapter
+  vercel-ai/   # llmmeter-vercel-ai — Vercel AI SDK adapter
+  fetch/       # llmmeter-fetch — catch-all fetch() wrapper (auto-detects URL)
+  sqlite/      # llmmeter-sqlite — SQLite sink + read API
+  postgres/    # llmmeter-postgres — Postgres sink + read API
+  otel/        # llmmeter-otel — OpenTelemetry sink (Gen-AI semantic conventions)
+  cli/         # @amit641/llmmeter-cli — `llmmeter` binary, dashboard server, collector, tail, analyze
+  dashboard/   # llmmeter-dashboard — React UI (bundled into cli/static)
+  llmmeter/    # umbrella package — `import { meter } from "@amit641/llmmeter"`
 apps/
   docs/        # Astro Starlight docs site (publishes to llmmeter.dev)
 examples/

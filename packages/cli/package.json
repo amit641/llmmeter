@@ -1,5 +1,5 @@
 {
-  "name": "@llmmeter/cli",
+  "name": "@amit641/llmmeter-cli",
   "version": "0.1.0",
   "description": "CLI for llmmeter: dashboard, collector, export, prune.",
   "license": "MIT",
@@ -7,7 +7,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "llmmeter": "./dist/cli.js"
+    "@amit641/llmmeter": "./dist/cli.js"
   },
   "files": [
     "dist",
@@ -28,20 +28,20 @@
     "access": "public"
   },
   "dependencies": {
-    "@llmmeter/core": "workspace:*",
-    "@llmmeter/sqlite": "workspace:*"
+    "llmmeter-core": "workspace:*",
+    "llmmeter-sqlite": "workspace:*"
   },
   "peerDependencies": {
-    "@llmmeter/postgres": "workspace:*"
+    "llmmeter-postgres": "workspace:*"
   },
   "peerDependenciesMeta": {
-    "@llmmeter/postgres": {
+    "llmmeter-postgres": {
       "optional": true
     }
   },
   "devDependencies": {
-    "@llmmeter/postgres": "workspace:*",
     "@types/pg": "^8.11.10",
+    "llmmeter-postgres": "workspace:*",
     "pg": "^8.13.1",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2",

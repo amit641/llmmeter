@@ -6,7 +6,7 @@ description: Lambda, Cloudflare Workers, Vercel Edge.
 Edge environments are stateless: you can't keep a SQLite file alive between invocations. Use the HTTP sink to ship to a long-lived collector:
 
 ```ts
-import { meter, httpSink } from "llmmeter";
+import { meter, httpSink } from "@amit641/llmmeter";
 
 const openai = meter(new OpenAI(), {
   sink: httpSink({
@@ -21,4 +21,4 @@ const openai = meter(new OpenAI(), {
 ctx.waitUntil(shutdown());
 ```
 
-For Cloudflare Workers without a Node runtime, use the [`@llmmeter/fetch`](/adapters/fetch/) adapter instead — it works on web fetch with no Node dependencies.
+For Cloudflare Workers without a Node runtime, use the [`llmmeter-fetch`](/adapters/fetch/) adapter instead — it works on web fetch with no Node dependencies.

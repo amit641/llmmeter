@@ -8,7 +8,7 @@
  *   - extract token counts from an SSE stream chunk
  */
 
-import type { Operation, ProviderName, TokenUsage } from "@llmmeter/core";
+import type { Operation, ProviderName, TokenUsage } from "llmmeter-core";
 
 export interface DetectedRequest {
   provider: ProviderName;

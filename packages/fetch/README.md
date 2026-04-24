@@ -1,9 +1,9 @@
-# @llmmeter/fetch
+# llmmeter-fetch
 
 Catch-all `fetch()` wrapper for [llmmeter](https://github.com/amit641/llmmeter). Auto-detects requests to OpenAI, Anthropic, Google, Mistral, Groq, OpenRouter, DeepSeek, xAI, and Ollama URLs and records them. Calls to anything else pass through untouched.
 
 ```ts
-import { meterFetch } from "@llmmeter/fetch";
+import { meterFetch } from "llmmeter-fetch";
 
 // Globally:
 globalThis.fetch = meterFetch(globalThis.fetch);

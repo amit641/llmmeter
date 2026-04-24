@@ -20,7 +20,7 @@ import {
   type MeterOptions,
   type Operation,
   type TokenUsage,
-} from "@llmmeter/core";
+} from "llmmeter-core";
 
 type AnyOpenAI = Record<string, any>;
 type CreateFn = (body: any, opts?: any) => any;
@@ -48,7 +48,7 @@ export interface OpenAIAdapterOptions extends MeterOptions {
  *
  * @example
  *   import OpenAI from "openai";
- *   import { meter } from "@llmmeter/openai";
+ *   import { meter } from "llmmeter-openai";
  *   const openai = meter(new OpenAI());
  */
 export function meter<T extends AnyOpenAI>(client: T, options: OpenAIAdapterOptions = {}): T {

@@ -1,5 +1,5 @@
 {
-  "name": "@llmmeter/mistral",
+  "name": "llmmeter-mistral",
   "version": "0.1.0",
   "description": "Mistral AI SDK adapter for llmmeter (@mistralai/mistralai).",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@llmmeter/core": "workspace:*"
+    "llmmeter-core": "workspace:*"
   },
   "peerDependencies": {
     "@mistralai/mistralai": ">=1.0.0"

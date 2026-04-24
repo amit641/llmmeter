@@ -4,7 +4,7 @@ description: Append-only JSONL file. Default fallback sink.
 ---
 
 ```ts
-import { jsonlSink } from "llmmeter";
+import { jsonlSink } from "@amit641/llmmeter";
 
 const sink = jsonlSink({ dir: "./.llmmeter", filename: "calls.jsonl" });
 ```

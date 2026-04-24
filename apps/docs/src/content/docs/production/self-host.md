@@ -21,7 +21,7 @@ The image runs `llmmeter serve`, which exposes:
 ## Wire your app to the collector
 
 ```ts
-import { meter, httpSink } from "llmmeter";
+import { meter, httpSink } from "@amit641/llmmeter";
 
 const sink = httpSink({
   url: "https://llmmeter.mycompany.com/ingest",

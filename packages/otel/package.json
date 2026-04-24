@@ -1,5 +1,5 @@
 {
-  "name": "@llmmeter/otel",
+  "name": "llmmeter-otel",
   "version": "0.1.0",
   "description": "OpenTelemetry sink for llmmeter. Emits Gen-AI semantic-convention spans + metrics.",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@llmmeter/core": "workspace:*"
+    "llmmeter-core": "workspace:*"
   },
   "peerDependencies": {
     "@opentelemetry/api": ">=1.7.0"

@@ -1,8 +1,8 @@
 {
-  "name": "@llmmeter/dashboard",
+  "name": "llmmeter-dashboard",
   "version": "0.1.0",
   "private": true,
-  "description": "Dashboard UI for llmmeter (bundled into @llmmeter/cli).",
+  "description": "Dashboard UI for llmmeter (bundled into @amit641/llmmeter-cli).",
   "type": "module",
   "scripts": {
     "build": "vite build",

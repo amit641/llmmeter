@@ -6,7 +6,7 @@ description: Managed collector + dashboard at llmmeter.dev/cloud.
 We're building a managed collector + dashboard so you don't have to run Docker yourself.
 
 ```ts
-import { meter, httpSink } from "llmmeter";
+import { meter, httpSink } from "@amit641/llmmeter";
 
 const openai = meter(new OpenAI(), {
   sink: httpSink({

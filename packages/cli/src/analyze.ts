@@ -15,7 +15,7 @@
  * gpt-4o-mini at 1/15th the cost") without any extra instrumentation.
  */
 
-import { PRICE_TABLE, priceFor, type ProviderName } from "@llmmeter/core";
+import { PRICE_TABLE, priceFor, type ProviderName } from "llmmeter-core";
 import type { Storage, QueryFilters } from "./storage.js";
 
 export interface RoutingSuggestion {

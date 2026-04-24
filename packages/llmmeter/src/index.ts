@@ -1,18 +1,18 @@
 /**
  * Umbrella entry. The README pitch is one line:
  *
- *   import { meter } from "llmmeter";
+ *   import { meter } from "@amit641/llmmeter";
  *   const openai = meter(new OpenAI());
  *
  * This `meter()` auto-detects the SDK shape and dispatches to the right adapter.
- * For zero-overhead/explicit usage, prefer `import { meter } from "llmmeter/openai"`.
+ * For zero-overhead/explicit usage, prefer `import { meter } from "@amit641/llmmeter/openai"`.
  */
 
-import { meter as meterOpenAI } from "@llmmeter/openai";
-import { meter as meterAnthropic } from "@llmmeter/anthropic";
-import type { MeterOptions } from "@llmmeter/core";
+import { meter as meterOpenAI } from "llmmeter-openai";
+import { meter as meterAnthropic } from "llmmeter-anthropic";
+import type { MeterOptions } from "llmmeter-core";
 
-export type { MeterOptions, MeterContext, LLMCallRecord, Sink } from "@llmmeter/core";
+export type { MeterOptions, MeterContext, LLMCallRecord, Sink } from "llmmeter-core";
 export {
   withContext,
   jsonlSink,
@@ -24,7 +24,7 @@ export {
   priceFor,
   PRICE_TABLE,
   BudgetExceededError,
-} from "@llmmeter/core";
+} from "llmmeter-core";
 
 /**
  * Auto-detect a supported LLM SDK and wrap it. Throws if the shape isn't recognized;
@@ -35,7 +35,7 @@ export function meter<T extends Record<string, any>>(client: T, options: MeterOp
   if (isAnthropicLike(client)) return meterAnthropic(client, options);
   throw new Error(
     "[llmmeter] meter(): could not auto-detect SDK shape. " +
-      "Use `import { meter } from 'llmmeter/openai'` (or '/anthropic') instead.",
+      "Use `import { meter } from '@amit641/llmmeter/openai'` (or '/anthropic') instead.",
   );
 }
 

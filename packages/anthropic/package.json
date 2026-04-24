@@ -1,5 +1,5 @@
 {
-  "name": "@llmmeter/anthropic",
+  "name": "llmmeter-anthropic",
   "version": "0.1.0",
   "description": "Anthropic SDK adapter for llmmeter.",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@llmmeter/core": "workspace:*"
+    "llmmeter-core": "workspace:*"
   },
   "peerDependencies": {
     "@anthropic-ai/sdk": ">=0.20.0"

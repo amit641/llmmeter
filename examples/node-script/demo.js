@@ -1,14 +1,14 @@
 /**
  * Demo: simulates 100 OpenAI chat calls without ever hitting the network.
- * Records go to ./.amit641/llmmeter.db so you can launch the dashboard with
- *   npx llmmeter dashboard
+ * Records go to ./.llmmeter/llmmeter.db so you can launch the dashboard with
+ *   npx @amit641/llmmeter-cli dashboard
  *
  * Run:  node demo.js
  */
 
-import { meter } from "llmmeter/openai";
-import { sqliteSink } from "llmmeter/sqlite";
-import { withContext, shutdown } from "llmmeter";
+import { meter } from "@amit641/llmmeter/openai";
+import { sqliteSink } from "@amit641/llmmeter/sqlite";
+import { withContext, shutdown } from "@amit641/llmmeter";
 
 const features = ["chat", "summarize", "rag", "agent"];
 const models = ["gpt-4o", "gpt-4o-mini", "o1-mini"];
@@ -43,7 +43,7 @@ function fakeOpenAI() {
   };
 }
 
-const sink = sqliteSink({ filePath: "./.amit641/llmmeter.db" });
+const sink = sqliteSink({ filePath: "./.llmmeter/llmmeter.db" });
 const openai = meter(fakeOpenAI(), { sink });
 
 const N = 200;
@@ -71,4 +71,4 @@ await sink.flush();
 await shutdown();
 
 console.log(`\nDone. ok=${ok} err=${err}\n`);
-console.log("Now run:  npx llmmeter dashboard\n");
+console.log("Now run:  npx @amit641/llmmeter-cli dashboard\n");

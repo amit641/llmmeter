@@ -1,5 +1,5 @@
 {
-  "name": "@llmmeter/openai",
+  "name": "llmmeter-openai",
   "version": "0.1.0",
   "description": "OpenAI SDK adapter for llmmeter.",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@llmmeter/core": "workspace:*"
+    "llmmeter-core": "workspace:*"
   },
   "peerDependencies": {
     "openai": ">=4.0.0"

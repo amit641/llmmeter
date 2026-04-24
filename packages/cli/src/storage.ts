@@ -4,7 +4,7 @@
  * we just wrap them.
  */
 
-import type { LLMCallRecord } from "@llmmeter/core";
+import type { LLMCallRecord } from "llmmeter-core";
 
 export interface QueryFilters {
   provider?: string;
@@ -33,7 +33,7 @@ export interface Storage {
 }
 
 export async function openSqliteStorage(filePath: string): Promise<Storage> {
-  const sqlite = await import("@llmmeter/sqlite");
+  const sqlite = await import("llmmeter-sqlite");
   const db = sqlite.openDb({ filePath });
   // sink for ingest
   const sink = sqlite.sqliteSink({ db, batchSize: 50, flushIntervalMs: 100 });
@@ -64,7 +64,7 @@ export async function openSqliteStorage(filePath: string): Promise<Storage> {
 }
 
 export async function openPostgresStorage(connectionString: string): Promise<Storage> {
-  const pg = await import("@llmmeter/postgres");
+  const pg = await import("llmmeter-postgres");
   const { Pool } = await import("pg");
   const pool = new Pool({ connectionString });
   const sink = pg.postgresSink({ pool, batchSize: 50, flushIntervalMs: 100 });

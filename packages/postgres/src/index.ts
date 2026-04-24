@@ -1,5 +1,5 @@
 import { Pool, type PoolConfig } from "pg";
-import type { LLMCallRecord, Sink } from "@llmmeter/core";
+import type { LLMCallRecord, Sink } from "llmmeter-core";
 import { SCHEMA_SQL } from "./schema.js";
 
 export interface PostgresSinkOptions {

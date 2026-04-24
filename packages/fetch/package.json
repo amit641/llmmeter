@@ -1,5 +1,5 @@
 {
-  "name": "@llmmeter/fetch",
+  "name": "llmmeter-fetch",
   "version": "0.1.0",
   "description": "Catch-all fetch() wrapper for llmmeter. Auto-detects OpenAI, Anthropic, Google, Mistral, Groq, OpenRouter, DeepSeek, xAI, Ollama URLs and records calls.",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@llmmeter/core": "workspace:*"
+    "llmmeter-core": "workspace:*"
   },
   "devDependencies": {
     "tsup": "^8.3.5",

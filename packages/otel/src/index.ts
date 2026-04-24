@@ -8,15 +8,15 @@
  * @see https://opentelemetry.io/docs/specs/semconv/gen-ai/
  *
  * @example
- *   import { otelSink } from "@llmmeter/otel";
- *   import { meter } from "llmmeter";
+ *   import { otelSink } from "llmmeter-otel";
+ *   import { meter } from "@amit641/llmmeter";
  *   import { trace } from "@opentelemetry/api";
  *
  *   const sink = otelSink({ tracer: trace.getTracer("my-app") });
  *   const ai = meter(openai, { sink });
  */
 
-import type { LLMCallRecord, Sink } from "@llmmeter/core";
+import type { LLMCallRecord, Sink } from "llmmeter-core";
 import {
   trace as traceApi,
   metrics as metricsApi,

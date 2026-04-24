@@ -1,5 +1,5 @@
 {
-  "name": "@llmmeter/google",
+  "name": "llmmeter-google",
   "version": "0.1.0",
   "description": "Google Generative AI SDK adapter for llmmeter (@google/generative-ai).",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@llmmeter/core": "workspace:*"
+    "llmmeter-core": "workspace:*"
   },
   "peerDependencies": {
     "@google/generative-ai": ">=0.21.0"

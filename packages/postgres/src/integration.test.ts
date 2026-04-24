@@ -5,15 +5,15 @@
  * available we skip gracefully so the regular unit-test pass on CI/dev
  * machines without a daemon doesn't fail.
  *
- * Force-run with: `pnpm --filter @llmmeter/postgres test:integration`
+ * Force-run with: `pnpm --filter llmmeter-postgres test:integration`
  */
 
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import type { LLMCallRecord } from "@llmmeter/core";
+import type { LLMCallRecord } from "llmmeter-core";
 import { aggregateByBucket, listCalls, postgresSink, pruneOlderThan, topByDimension, totals } from "./index.js";
 
 // Run integration tests only when explicitly opted in (requires Docker).
-//   pnpm --filter @llmmeter/postgres test:integration
+//   pnpm --filter llmmeter-postgres test:integration
 const RUN_INTEGRATION = process.env.LLMMETER_PG_INTEGRATION === "1";
 const d = RUN_INTEGRATION ? describe : describe.skip;
 

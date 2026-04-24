@@ -8,9 +8,9 @@
     "demo-real": "node demo-real.js"
   },
   "dependencies": {
-    "@llmmeter/openai": "workspace:*",
-    "@llmmeter/sqlite": "workspace:*",
-    "llmmeter": "workspace:*",
+    "llmmeter-openai": "workspace:*",
+    "llmmeter-sqlite": "workspace:*",
+    "@amit641/llmmeter": "workspace:*",
     "openai": "^4.77.0"
   }
 }

@@ -5,7 +5,7 @@ description: Drop-in observability for the official `@anthropic-ai/sdk`.
 
 ```ts
 import Anthropic from "@anthropic-ai/sdk";
-import { meter } from "llmmeter/anthropic";
+import { meter } from "@amit641/llmmeter/anthropic";
 
 const anthropic = meter(new Anthropic());
 

@@ -4,7 +4,7 @@ description: Find features whose prompts succeed at a model 1/15th the cost.
 ---
 
 ```sh
-npx llmmeter analyze --since 14d --include-untested
+npx @amit641/llmmeter-cli analyze --since 14d --include-untested
 ```
 
 The analyzer looks at the last `--since` window and finds opportunities to save money:
@@ -26,7 +26,7 @@ Routing suggestions (window: 14d, 2 found)
 Programmatic API:
 
 ```ts
-import { analyzeRouting, suggestUntestedAlternatives } from "@llmmeter/cli";
+import { analyzeRouting, suggestUntestedAlternatives } from "@amit641/llmmeter-cli";
 
 const tested = await analyzeRouting({ storage });
 const speculative = await suggestUntestedAlternatives({ storage });

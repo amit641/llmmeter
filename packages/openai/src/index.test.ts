@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it } from "vitest";
-import { memorySink, shutdown, withContext } from "@llmmeter/core";
+import { memorySink, shutdown, withContext } from "llmmeter-core";
 import { meter } from "./index.js";
 
 afterEach(async () => {

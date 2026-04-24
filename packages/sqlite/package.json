@@ -1,5 +1,5 @@
 {
-  "name": "@llmmeter/sqlite",
+  "name": "llmmeter-sqlite",
   "version": "0.1.0",
   "description": "SQLite sink and query API for llmmeter.",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@llmmeter/core": "workspace:*",
+    "llmmeter-core": "workspace:*",
     "better-sqlite3": "^11.7.0"
   },
   "devDependencies": {

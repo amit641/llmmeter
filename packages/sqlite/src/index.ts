@@ -1,11 +1,11 @@
 import { mkdirSync } from "node:fs";
 import { dirname } from "node:path";
 import Database from "better-sqlite3";
-import type { LLMCallRecord, Sink } from "@llmmeter/core";
+import type { LLMCallRecord, Sink } from "llmmeter-core";
 import { SCHEMA_SQL } from "./schema.js";
 
 export interface SqliteSinkOptions {
-  /** File path for the SQLite database. Defaults to `./.amit641/llmmeter.db`. */
+  /** File path for the SQLite database. Defaults to `./.llmmeter/llmmeter.db`. */
   filePath?: string;
   /** Records per write batch. Defaults to 50. */
   batchSize?: number;
@@ -69,7 +69,7 @@ function recordToRow(r: LLMCallRecord): Record<string, unknown> {
  * Cheap, durable, perfect for local dev and single-instance prod.
  */
 export function sqliteSink(opts: SqliteSinkOptions = {}): Sink {
-  const filePath = opts.filePath ?? "./.amit641/llmmeter.db";
+  const filePath = opts.filePath ?? "./.llmmeter/llmmeter.db";
   const batchSize = opts.batchSize ?? 50;
   const flushIntervalMs = opts.flushIntervalMs ?? 250;
 

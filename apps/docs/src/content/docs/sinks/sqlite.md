@@ -4,8 +4,8 @@ description: Durable local storage with the dashboard read API.
 ---
 
 ```ts
-import { sqliteSink } from "llmmeter/sqlite";
-const sink = sqliteSink({ filePath: "./.amit641/llmmeter.db" });
+import { sqliteSink } from "@amit641/llmmeter/sqlite";
+const sink = sqliteSink({ filePath: "./.llmmeter/llmmeter.db" });
 ```
 
 Backed by `better-sqlite3` with WAL mode for concurrent reads. The sink batches writes (default 50 records or 500 ms, whichever comes first) and flushes on `process.exit`.

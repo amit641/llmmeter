@@ -6,14 +6,14 @@ description: Get llmmeter running in five minutes.
 ## 1. Install
 
 ```sh
-npm install llmmeter
+npm install @amit641/llmmeter
 ```
 
 ## 2. Wrap your client
 
 ```ts
 import OpenAI from "openai";
-import { meter } from "llmmeter";
+import { meter } from "@amit641/llmmeter";
 
 const openai = meter(new OpenAI(), { feature: "chat" });
 
@@ -28,24 +28,24 @@ By default, calls are appended to `./.llmmeter/calls.jsonl` so you don't lose da
 ## 3. Switch to SQLite for the dashboard
 
 ```ts
-import { meter } from "llmmeter";
-import { sqliteSink } from "llmmeter/sqlite";
+import { meter } from "@amit641/llmmeter";
+import { sqliteSink } from "@amit641/llmmeter/sqlite";
 
 const openai = meter(new OpenAI(), {
-  sink: sqliteSink({ filePath: "./.amit641/llmmeter.db" }),
+  sink: sqliteSink({ filePath: "./.llmmeter/llmmeter.db" }),
   feature: "chat",
 });
 ```
 
 ```sh
-npx llmmeter dashboard
+npx @amit641/llmmeter-cli dashboard
 # → http://localhost:3737
 ```
 
 ## 4. Attach context per request
 
 ```ts
-import { withContext } from "llmmeter";
+import { withContext } from "@amit641/llmmeter";
 
 await withContext({ userId: "usr_abc", feature: "search", traceId: "trc_123" }, async () => {
   await openai.chat.completions.create({ ... });
@@ -59,7 +59,7 @@ Every call inside the closure inherits the context — even calls made deep insi
 
 ```ts
 const openai = meter(new OpenAI(), {
-  sink: sqliteSink({ filePath: "./.amit641/llmmeter.db" }),
+  sink: sqliteSink({ filePath: "./.llmmeter/llmmeter.db" }),
   maxDailySpendUsd: 50,
   onBudgetExceeded: "throw",
 });

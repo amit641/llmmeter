@@ -44,15 +44,15 @@ importers:
 
   examples/node-script:
     dependencies:
-      '@llmmeter/openai':
-        specifier: workspace:*
-        version: link:../../packages/openai
-      '@llmmeter/sqlite':
-        specifier: workspace:*
-        version: link:../../packages/sqlite
-      llmmeter:
+      '@amit641/llmmeter':
         specifier: workspace:*
         version: link:../../packages/llmmeter
+      llmmeter-openai:
+        specifier: workspace:*
+        version: link:../../packages/openai
+      llmmeter-sqlite:
+        specifier: workspace:*
+        version: link:../../packages/sqlite
       openai:
         specifier: ^4.77.0
         version: 4.104.0(ws@8.20.0)(zod@3.25.76)
@@ -62,7 +62,7 @@ importers:
       '@anthropic-ai/sdk':
         specifier: '>=0.20.0'
         version: 0.91.0(zod@4.3.6)
-      '@llmmeter/core':
+      llmmeter-core:
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -78,19 +78,19 @@ importers:
 
   packages/cli:
     dependencies:
-      '@llmmeter/core':
+      llmmeter-core:
         specifier: workspace:*
         version: link:../core
-      '@llmmeter/sqlite':
+      llmmeter-sqlite:
         specifier: workspace:*
         version: link:../sqlite
     devDependencies:
-      '@llmmeter/postgres':
-        specifier: workspace:*
-        version: link:../postgres
       '@types/pg':
         specifier: ^8.11.10
         version: 8.20.0
+      llmmeter-postgres:
+        specifier: workspace:*
+        version: link:../postgres
       pg:
         specifier: ^8.13.1
         version: 8.20.0
@@ -155,7 +155,7 @@ importers:
 
   packages/fetch:
     dependencies:
-      '@llmmeter/core':
+      llmmeter-core:
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -174,7 +174,7 @@ importers:
       '@google/generative-ai':
         specifier: '>=0.21.0'
         version: 0.24.1
-      '@llmmeter/core':
+      llmmeter-core:
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -193,23 +193,23 @@ importers:
       '@anthropic-ai/sdk':
         specifier: '>=0.20.0'
         version: 0.91.0(zod@3.25.76)
-      '@llmmeter/anthropic':
+      llmmeter-anthropic:
         specifier: workspace:*
         version: link:../anthropic
-      '@llmmeter/core':
+      llmmeter-core:
         specifier: workspace:*
         version: link:../core
-      '@llmmeter/openai':
+      llmmeter-openai:
         specifier: workspace:*
         version: link:../openai
       openai:
         specifier: '>=4.0.0'
         version: 4.104.0(ws@8.20.0)(zod@3.25.76)
     devDependencies:
-      '@llmmeter/postgres':
+      llmmeter-postgres:
         specifier: workspace:*
         version: link:../postgres
-      '@llmmeter/sqlite':
+      llmmeter-sqlite:
         specifier: workspace:*
         version: link:../sqlite
       tsup:
@@ -224,12 +224,12 @@ importers:
 
   packages/mistral:
     dependencies:
-      '@llmmeter/core':
-        specifier: workspace:*
-        version: link:../core
       '@mistralai/mistralai':
         specifier: '>=1.0.0'
         version: 2.2.1
+      llmmeter-core:
+        specifier: workspace:*
+        version: link:../core
     devDependencies:
       tsup:
         specifier: ^8.3.5
@@ -243,7 +243,7 @@ importers:
 
   packages/openai:
     dependencies:
-      '@llmmeter/core':
+      llmmeter-core:
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -262,7 +262,7 @@ importers:
 
   packages/otel:
     dependencies:
-      '@llmmeter/core':
+      llmmeter-core:
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -284,7 +284,7 @@ importers:
 
   packages/postgres:
     dependencies:
-      '@llmmeter/core':
+      llmmeter-core:
         specifier: workspace:*
         version: link:../core
       pg:
@@ -312,12 +312,12 @@ importers:
 
   packages/sqlite:
     dependencies:
-      '@llmmeter/core':
-        specifier: workspace:*
-        version: link:../core
       better-sqlite3:
         specifier: ^11.7.0
         version: 11.10.0
+      llmmeter-core:
+        specifier: workspace:*
+        version: link:../core
     devDependencies:
       '@types/better-sqlite3':
         specifier: ^7.6.12
@@ -334,12 +334,12 @@ importers:
 
   packages/vercel-ai:
     dependencies:
-      '@llmmeter/core':
-        specifier: workspace:*
-        version: link:../core
       ai:
         specifier: '>=3.0.0'
         version: 6.0.168(zod@4.3.6)
+      llmmeter-core:
+        specifier: workspace:*
+        version: link:../core
     devDependencies:
       tsup:
         specifier: ^8.3.5

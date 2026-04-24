@@ -9,7 +9,7 @@
  *   - You're on Cloudflare Workers / Bun / Deno without a vendor SDK
  *
  * @example
- *   import { meterFetch } from "@llmmeter/fetch";
+ *   import { meterFetch } from "llmmeter-fetch";
  *   globalThis.fetch = meterFetch(globalThis.fetch);
  *
  * @example
@@ -24,7 +24,7 @@ import {
   type Operation,
   type ProviderName,
   type TokenUsage,
-} from "@llmmeter/core";
+} from "llmmeter-core";
 import { findParser, looksLikeSse, type FetchParser, type ParsedResponse } from "./parsers.js";
 
 export type { FetchParser, ParsedResponse } from "./parsers.js";

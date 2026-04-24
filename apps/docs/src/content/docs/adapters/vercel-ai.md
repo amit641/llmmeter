@@ -5,7 +5,7 @@ description: Wrap `generateText`, `streamText`, `embed`, etc. from the `ai` pack
 
 ```ts
 import { generateText, streamText, embed } from "ai";
-import { meter } from "@llmmeter/vercel-ai";
+import { meter } from "llmmeter-vercel-ai";
 
 const ai = meter({ generateText, streamText, embed });
 

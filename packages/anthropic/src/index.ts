@@ -11,7 +11,7 @@ import {
   type MeterContext,
   type MeterOptions,
   type TokenUsage,
-} from "@llmmeter/core";
+} from "llmmeter-core";
 
 type AnyAnthropic = Record<string, any>;
 

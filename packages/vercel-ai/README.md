@@ -1,10 +1,10 @@
-# @llmmeter/vercel-ai
+# llmmeter-vercel-ai
 
 Vercel AI SDK adapter for [llmmeter](https://github.com/amit641/llmmeter). Wraps `generateText`, `streamText`, `generateObject`, `streamObject`, `embed`, and `embedMany`.
 
 ```ts
 import { generateText, streamText, embed } from "ai";
-import { meter } from "@llmmeter/vercel-ai";
+import { meter } from "llmmeter-vercel-ai";
 
 const ai = meter({ generateText, streamText, embed });
 

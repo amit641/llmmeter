@@ -4,7 +4,7 @@ description: Reference for the `llmmeter` binary.
 ---
 
 ```sh
-npx llmmeter <command> [options]
+npx @amit641/llmmeter-cli <command> [options]
 ```
 
 | Command | What it does |
@@ -20,7 +20,7 @@ npx llmmeter <command> [options]
 
 ## Common flags
 
-- `--db PATH` — SQLite file (default `./.amit641/llmmeter.db`)
+- `--db PATH` — SQLite file (default `./.llmmeter/llmmeter.db`)
 - `--pg URL` — Postgres connection string (used by `serve` / `prune`)
 - `--port N` — HTTP port
 - `--ingest-token T` / `--dashboard-token T` — auth tokens for `serve`

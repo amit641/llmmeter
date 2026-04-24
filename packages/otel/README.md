@@ -1,15 +1,15 @@
-# @llmmeter/otel
+# llmmeter-otel
 
 OpenTelemetry sink for [llmmeter](https://github.com/amit641/llmmeter). Emits [Gen-AI semantic-convention](https://opentelemetry.io/docs/specs/semconv/gen-ai/) spans + metrics for every recorded LLM call, so they show up alongside the rest of your traces in Jaeger, Tempo, Honeycomb, Datadog, New Relic — anything that speaks OTLP.
 
 ```ts
-import { meter, multiSink, sqliteSink } from "llmmeter";
-import { otelSink } from "@llmmeter/otel";
+import { meter, multiSink, sqliteSink } from "@amit641/llmmeter";
+import { otelSink } from "llmmeter-otel";
 import { trace } from "@opentelemetry/api";
 
 const ai = meter(openai, {
   sink: multiSink(
-    sqliteSink({ filePath: "./.amit641/llmmeter.db" }),
+    sqliteSink({ filePath: "./.llmmeter/llmmeter.db" }),
     otelSink({ tracer: trace.getTracer("my-app") }),
   ),
 });

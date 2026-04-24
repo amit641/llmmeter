@@ -6,7 +6,7 @@
  *
  * @example
  *   import { Mistral } from "@mistralai/mistralai";
- *   import { meter } from "@llmmeter/mistral";
+ *   import { meter } from "llmmeter-mistral";
  *
  *   const client = meter(new Mistral({ apiKey: process.env.MISTRAL_API_KEY! }));
  *   const r = await client.chat.complete({ model: "mistral-small-latest", messages });
@@ -18,7 +18,7 @@ import {
   type MeterOptions,
   type Operation,
   type TokenUsage,
-} from "@llmmeter/core";
+} from "llmmeter-core";
 
 const PROVIDER = "mistral" as const;
 

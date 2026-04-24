@@ -28,14 +28,14 @@ jobs:
         run: node scripts/update-pricing.mjs
 
       - name: Run tests with new prices
-        run: pnpm --filter @llmmeter/core test
+        run: pnpm --filter llmmeter-core test
 
       - name: Create changeset
         run: |
           mkdir -p .changeset
           cat > .changeset/pricing-update.md <<'EOF'
           ---
-          "@llmmeter/core": patch
+          "llmmeter-core": patch
           ---
 
           Refresh bundled model price table (weekly automated update).
@@ -49,7 +49,7 @@ jobs:
           delete-branch: true
           title: "chore: weekly pricing update"
           body: |
-            Automated weekly refresh of `PRICE_TABLE` in `@llmmeter/core` based on
+            Automated weekly refresh of `PRICE_TABLE` in `llmmeter-core` based on
             the upstream LiteLLM price registry.
 
             Please review the diff and merge if the changes look reasonable.

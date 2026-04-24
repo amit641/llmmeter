@@ -1,5 +1,5 @@
 {
-  "name": "@llmmeter/vercel-ai",
+  "name": "llmmeter-vercel-ai",
   "version": "0.1.0",
   "description": "Vercel AI SDK adapter for llmmeter (generateText, streamText, embed, generateObject).",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@llmmeter/core": "workspace:*"
+    "llmmeter-core": "workspace:*"
   },
   "peerDependencies": {
     "ai": ">=3.0.0"

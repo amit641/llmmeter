@@ -25,7 +25,7 @@ const HELP = `llmmeter — observability and cost tracking for LLM SDKs
 Usage:
   llmmeter dashboard [--db PATH] [--port N] [--no-open]
       Start a local read-only dashboard against a SQLite file.
-      Default --db ./.amit641/llmmeter.db
+      Default --db ./.llmmeter/llmmeter.db
 
   llmmeter tail [--db PATH] [--feature F] [--provider P] [--interval MS]
       Live tail of incoming LLM calls in your terminal (like 'tail -f').
@@ -114,7 +114,7 @@ function resolveStaticDir(): string {
 }
 
 async function runDashboard() {
-  const dbPath = flag("--db") ?? "./.amit641/llmmeter.db";
+  const dbPath = flag("--db") ?? "./.llmmeter/llmmeter.db";
   const port = Number(flag("--port") ?? "3737");
   const noOpen = bool("--no-open");
   if (!existsSync(dbPath)) {
@@ -176,7 +176,7 @@ async function runServe() {
 }
 
 async function runExport() {
-  const dbPath = flag("--db") ?? "./.amit641/llmmeter.db";
+  const dbPath = flag("--db") ?? "./.llmmeter/llmmeter.db";
   const format = (flag("--format") ?? "jsonl").toLowerCase();
   const out = flag("--out");
   if (!existsSync(dbPath)) {
@@ -228,7 +228,7 @@ function parseDuration(s: string): number {
 }
 
 async function runPrune() {
-  const dbPath = flag("--db") ?? "./.amit641/llmmeter.db";
+  const dbPath = flag("--db") ?? "./.llmmeter/llmmeter.db";
   const older = flag("--older-than");
   if (!older) {
     process.stderr.write("--older-than required (e.g. 30d)\n");
@@ -248,7 +248,7 @@ async function runPricing() {
     process.exit(2);
   }
   const provider = flag("--provider");
-  const { PRICE_TABLE } = await import("@llmmeter/core");
+  const { PRICE_TABLE } = await import("llmmeter-core");
   const rows = PRICE_TABLE.filter((p) => !provider || p.provider === provider);
   for (const r of rows) {
     process.stdout.write(
@@ -260,7 +260,7 @@ async function runPricing() {
 }
 
 async function runTail() {
-  const dbPath = flag("--db") ?? "./.amit641/llmmeter.db";
+  const dbPath = flag("--db") ?? "./.llmmeter/llmmeter.db";
   const interval = Number(flag("--interval") ?? "500");
   const feature = flag("--feature");
   const provider = flag("--provider");
@@ -281,7 +281,7 @@ async function runTail() {
 }
 
 async function runAnalyze() {
-  const dbPath = flag("--db") ?? "./.amit641/llmmeter.db";
+  const dbPath = flag("--db") ?? "./.llmmeter/llmmeter.db";
   const sinceStr = flag("--since") ?? "14d";
   const minCluster = Number(flag("--min-cluster") ?? "5");
   const includeUntested = bool("--include-untested");

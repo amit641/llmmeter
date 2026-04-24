@@ -9,5 +9,5 @@ export default defineConfig({
   target: "node18",
   splitting: false,
   treeshake: true,
-  external: ["@llmmeter/core", "@mistralai/mistralai"],
+  external: ["llmmeter-core", "@mistralai/mistralai"],
 });
